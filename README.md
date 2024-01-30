@@ -1,2 +1,2 @@
 # smart-scan
-Base for the project "SmartScan" 
+Base for the project "EatSafe" 
