@@ -55,10 +55,14 @@ function App() {
           style={{ display: 'none' }}
           id="fileInput"
         />
-        <button onClick={() => document.getElementById('fileInput')!.click()}>
+        <button 
+          className="image-upload-button"
+          onClick={() => document.getElementById('fileInput')!.click()}>
           Upload Image
         </button>
-        <button onClick={extractTextFromImage} disabled={isProcessing || !image}>
+        <button 
+          className="OCR-button"
+          onClick={extractTextFromImage} disabled={isProcessing || !image}>
           {isProcessing ? 'Extracting...' : 'Extract Text'}
         </button>
         {ocrText && <p>Extracted Text: {ocrText}</p>}

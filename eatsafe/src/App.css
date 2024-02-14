@@ -36,3 +36,29 @@
     transform: rotate(360deg);
   }
 }
+
+.image-upload-button {
+  background-color: #bad4d5; /* A verdant hue */
+  color: rgb(0, 0, 0);
+  padding: 10px 24px;
+  margin: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.image-upload-button:hover {
+  background-color: #457672;
+}
+
+.OCR-button {
+  background-color: #939696; /* A verdant hue */
+  color: rgb(0, 0, 0);
+  padding: 10px 24px;
+  margin: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.image-upload-button:hover {
+  background-color: #5e7272;
+}
