@@ -1,0 +1,26 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #333; /* Adjust the color to match your design */
+    color: white;
+  }
+  
+  .menu-icon {
+    /* Style your menu icon here */
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  
+  .logo {
+    /* Style for your app logo */
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .spacer {
+    /* Just an empty spacer */
+    width: 2rem;
+  }
+  

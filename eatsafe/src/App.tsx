@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header';
+import FileUpload from './components/FileUpload';
+import TextDisplay from './components/TextDisplay';
 
 declare global {
   interface Window {
-    Tesseract: any; // May adjust type:any to a more fitting type for ingredients
+    Tesseract: any; // Adjust for more specific typing as needed
   }
 }
 
@@ -52,7 +54,6 @@ function App() { //these const 'States' hold the temp data, updated below. Image
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        {/* Hidden file input for image upload vvv */}
         <input
           type="file"
           onChange={handleImageChange}
@@ -60,19 +61,16 @@ function App() { //these const 'States' hold the temp data, updated below. Image
           style={{ display: 'none' }}
           id="fileInput"
         />
-        {/* Button to trigger the file input click event vvv */}
         <button 
           className="image-upload-button"
           onClick={() => document.getElementById('fileInput')!.click()}>
           Upload Image
         </button>
-        {/* Button to start the OCR process, unless currently processing or if no image is selected */}
         <button 
           className="OCR-button"
           onClick={extractTextFromImage} disabled={isProcessing || !image}>
           {isProcessing ? 'Extracting...' : 'Extract Text'}
         </button>
-        {/* Displays extracted text */}
         {ocrText && <p>Extracted Text: {ocrText}</p>}
       </header>
     </div>
@@ -80,4 +78,3 @@ function App() { //these const 'States' hold the temp data, updated below. Image
 }
 
 export default App;
-
