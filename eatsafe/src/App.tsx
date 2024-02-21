@@ -8,10 +8,14 @@ declare global {
   }
 }
 
+
+const allergensList = ['gluten', 'peanut', 'dairy'];
+
 function App() {
   const [image, setImage] = useState<string | ArrayBuffer | null>(null);
   const [ocrText, setOcrText] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
+  const [allergens, setAllergens] = useState<string[]>([]);
 
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
@@ -36,12 +40,18 @@ function App() {
           'eng',
         );
         setOcrText(text);
+        detectAllergens(text); 
       } catch (error) {
         console.error('OCR Error:', error);
         setOcrText('Failed to extract text. See console for details.');
       }
       setIsProcessing(false);
     }
+  };
+
+  const detectAllergens = (text: string) => {
+    const detectedAllergens = allergensList.filter(allergen => text.toLowerCase().includes(allergen));
+    setAllergens(detectedAllergens);
   };
 
   return (
@@ -66,10 +76,10 @@ function App() {
           {isProcessing ? 'Extracting...' : 'Extract Text'}
         </button>
         {ocrText && <p>Extracted Text: {ocrText}</p>}
+        {allergens.length > 0 && <p>Allergens Detected: {allergens.join(', ')}</p>}
       </header>
     </div>
   );
 }
 
 export default App;
-
