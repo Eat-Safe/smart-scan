@@ -1,26 +1,49 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background-color: #333; /* Adjust the color to match your design */
-    color: white;
-  }
-  
-  .menu-icon {
-    /* Style your menu icon here */
-    font-size: 2rem;
-    cursor: pointer;
-  }
-  
-  .logo {
-    /* Style for your app logo */
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  
-  .spacer {
-    /* Just an empty spacer */
-    width: 2rem;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #535b41; /* Adjust the color to match your design */
+  color: white;
+  position: relative; /* Ensure that the .menu position is relative to .header */
+}
+
+.menu-icon {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.spacer {
+  width: 2rem;
+}
+
+.menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #535b41;
+  color: white;
+  padding: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.menu.visible {
+  display: flex;
+}
+
+.menu p {
+  margin: 0.5rem 0;
+}
+
+.menu-icon:hover + .menu {
+  visibility: visible;
+  opacity: 1;
+}
