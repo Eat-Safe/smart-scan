@@ -58,30 +58,6 @@ function App() {
 
   return (
     <div className="App">
-<<<<<<< HEAD
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <input
-          type="file"
-          onChange={handleImageChange}
-          accept="image/*"
-          style={{ display: 'none' }}
-          id="fileInput"
-        />
-        <button 
-          className="image-upload-button"
-          onClick={() => document.getElementById('fileInput')!.click()}>
-          Upload Image
-        </button>
-        <button 
-          className="OCR-button"
-          onClick={extractTextFromImage} disabled={isProcessing || !image}>
-          {isProcessing ? 'Extracting...' : 'Extract Text'}
-        </button>
-        {ocrText && <p>Extracted Text: {ocrText}</p>}
-        {allergens.length > 0 && <p>Allergens Detected: {allergens.join(', ')}</p>}
-      </header>
-=======
       <Header /> {/* Use the Header component */}
       <FileUpload onFileSelect={handleImageChange} /> {/* Use the FileUpload component */}
       <button 
@@ -90,7 +66,6 @@ function App() {
         {isProcessing ? 'Extracting...' : 'Extract Text'}
       </button>
       <TextDisplay text={ocrText} /> {/* Use the TextDisplay component */}
->>>>>>> origin/main
     </div>
   );
 }
