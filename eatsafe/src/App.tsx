@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header';
+import FileUpload from './components/FileUpload';
+import TextDisplay from './components/TextDisplay';
 
 declare global {
   interface Window {
-    Tesseract: any; // Adjust for more specific typing as needed
+    Tesseract: any;
   }
 }
 
@@ -56,6 +58,7 @@ function App() {
 
   return (
     <div className="App">
+<<<<<<< HEAD
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <input
@@ -78,6 +81,16 @@ function App() {
         {ocrText && <p>Extracted Text: {ocrText}</p>}
         {allergens.length > 0 && <p>Allergens Detected: {allergens.join(', ')}</p>}
       </header>
+=======
+      <Header /> {/* Use the Header component */}
+      <FileUpload onFileSelect={handleImageChange} /> {/* Use the FileUpload component */}
+      <button 
+        className="OCR-button"
+        onClick={extractTextFromImage} disabled={isProcessing || !image}>
+        {isProcessing ? 'Extracting...' : 'Extract Text'}
+      </button>
+      <TextDisplay text={ocrText} /> {/* Use the TextDisplay component */}
+>>>>>>> origin/main
     </div>
   );
 }
