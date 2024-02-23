@@ -3,6 +3,8 @@ import './App.css';
 import Header from './components/Header';
 import FileUpload from './components/FileUpload';
 import TextDisplay from './components/TextDisplay';
+import AllergensDisplay from './components/AllergensDisplay'; 
+
 
 declare global {
   interface Window {
@@ -66,6 +68,7 @@ function App() {
         {isProcessing ? 'Extracting...' : 'Extract Text'}
       </button>
       <TextDisplay text={ocrText} /> {/* Use the TextDisplay component */}
+      <AllergensDisplay allergens={allergens} /> {/* Use the AllergensDisplay component */}
     </div>
   );
 }
