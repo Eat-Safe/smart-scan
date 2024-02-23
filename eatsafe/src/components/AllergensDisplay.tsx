@@ -8,10 +8,10 @@ interface AllergensDisplayProps {
 
 const AllergensDisplay: React.FC<AllergensDisplayProps> = ({ allergens }) => {
   return (
-    <div className="allergens-display">
-      {allergens.length > 0 && (
+    <div className={`allergens-display ${allergens.length > 0 ? 'gradient-background' : ''}`}>
+    {allergens.length > 0 && (
         <p>Allergens Detected: {allergens.join(', ')}</p>
-      )}
+    )}
     </div>
   );
 };
