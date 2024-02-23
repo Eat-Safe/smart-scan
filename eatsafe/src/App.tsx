@@ -3,6 +3,8 @@ import './App.css';
 import Header from './components/Header';
 import FileUpload from './components/FileUpload';
 import TextDisplay from './components/TextDisplay';
+import AllergensDisplay from './components/AllergensDisplay'; 
+
 
 declare global {
   interface Window {
@@ -10,10 +12,14 @@ declare global {
   }
 }
 
+
+const allergensList = ['gluten', 'peanut', 'dairy'];
+
 function App() {
   const [image, setImage] = useState<string | ArrayBuffer | null>(null);
   const [ocrText, setOcrText] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
+  const [allergens, setAllergens] = useState<string[]>([]);
 
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
@@ -38,12 +44,18 @@ function App() {
           'eng',
         );
         setOcrText(text);
+        detectAllergens(text); 
       } catch (error) {
         console.error('OCR Error:', error);
         setOcrText('Failed to extract text. See console for details.');
       }
       setIsProcessing(false);
     }
+  };
+
+  const detectAllergens = (text: string) => {
+    const detectedAllergens = allergensList.filter(allergen => text.toLowerCase().includes(allergen));
+    setAllergens(detectedAllergens);
   };
 
   return (
@@ -56,6 +68,7 @@ function App() {
         {isProcessing ? 'Extracting...' : 'Extract Text'}
       </button>
       <TextDisplay text={ocrText} /> {/* Use the TextDisplay component */}
+      <AllergensDisplay allergens={allergens} /> {/* Use the AllergensDisplay component */}
     </div>
   );
 }

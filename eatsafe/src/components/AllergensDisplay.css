@@ -1,0 +1,19 @@
+/* AllergensDisplay.css */
+.allergens-display {
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    background-color: #f8f8f8; 
+    color: #333; 
+    font-size: 1rem; 
+    text-align: center; 
+  }
+  
+  
+  @media (max-width: 768px) {
+    .allergens-display {
+      padding: 0.5rem;
+    }
+  }
+  
