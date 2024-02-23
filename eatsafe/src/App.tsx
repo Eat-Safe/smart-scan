@@ -4,6 +4,7 @@ import Header from './components/Header';
 import FileUpload from './components/FileUpload';
 import TextDisplay from './components/TextDisplay';
 import AllergensDisplay from './components/AllergensDisplay'; 
+import allergensList from './allergens.json';
 
 
 declare global {
@@ -11,9 +12,6 @@ declare global {
     Tesseract: any;
   }
 }
-
-
-const allergensList = ['gluten', 'peanut', 'dairy'];
 
 function App() {
   const [image, setImage] = useState<string | ArrayBuffer | null>(null);
