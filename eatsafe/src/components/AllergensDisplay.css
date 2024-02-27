@@ -3,9 +3,7 @@
   margin: 1rem;
   padding: 1rem;
   border: none; 
-  border-radius: 10px; 
-  background-color: #ffffff; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  border-radius: 10px;  
   color: #333; 
   font-size: 1rem;
   text-align: center; 
@@ -21,8 +19,8 @@
 
 
 .gradient-background {
-  background: linear-gradient(135deg, #f0f00c 0%, #09ecf0 100%);
-  color: #fff; 
+  background: #535b41;
+  color: #ffff; 
 }
 
 
