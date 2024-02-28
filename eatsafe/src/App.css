@@ -78,3 +78,9 @@ body {
   background-color: #535b41;
 }
 
+/* In your CSS file */
+.captured-image {
+  width: 100%;
+  /* Add more styling as needed */
+}
+
