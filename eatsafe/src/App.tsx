@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Header from './components/Header';
 import FileUpload from './components/FileUpload';
@@ -34,6 +34,13 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    // Automatically call extractTextFromImage when image state changes and is not null
+    if (image) {
+      extractTextFromImage();
+    }
+  }, [image]); // Dependency array, re-run the effect when `image` changes
+
 
   const extractTextFromImage = async () => {
     if (image && typeof image === 'string') {
@@ -52,6 +59,9 @@ function App() {
       setIsProcessing(false);
     }
   };
+  const handleImageCapture = (imageSrc: string) => {
+    setImage(imageSrc); // Use the same state as for the uploaded image
+  };
 
   const detectAllergens = (text: string) => {
     const detectedAllergens = allergensList.filter(allergen => text.toLowerCase().includes(allergen));
@@ -60,16 +70,12 @@ function App() {
 
   return (
     <div className="App">
-      <Header /> {/* Use the Header component */}
-      <FileUpload onFileSelect={handleImageChange} /> {/* Use the FileUpload component */}
-      <WebcamCapture />
-      <button 
-        className="OCR-button"
-        onClick={extractTextFromImage} disabled={isProcessing || !image}>
-        {isProcessing ? 'Extracting...' : 'Extract Text'}
-      </button>
-      <TextDisplay text={ocrText} /> {/* Use the TextDisplay component */}
-      <AllergensDisplay allergens={allergens} /> {/* Use the AllergensDisplay component */}
+      <Header />
+      <FileUpload onFileSelect={handleImageChange} />
+      <WebcamCapture onCapture={handleImageCapture}/>
+      {/* Removed the button as extractTextFromImage is now called automatically */}
+      {isProcessing ? <p>Extracting...</p> : <TextDisplay text={ocrText} />}
+      <AllergensDisplay allergens={allergens} />
     </div>
   );
 }
