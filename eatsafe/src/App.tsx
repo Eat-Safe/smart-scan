@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import Header from './components/Header';
 import FileUpload from './components/FileUpload';
+import WebcamCapture from './components/WebcamCapture';
 import TextDisplay from './components/TextDisplay';
 import AllergensDisplay from './components/AllergensDisplay'; 
 import allergensList from './allergens.json';
@@ -33,6 +34,7 @@ function App() {
     }
   };
 
+
   const extractTextFromImage = async () => {
     if (image && typeof image === 'string') {
       setIsProcessing(true);
@@ -60,6 +62,7 @@ function App() {
     <div className="App">
       <Header /> {/* Use the Header component */}
       <FileUpload onFileSelect={handleImageChange} /> {/* Use the FileUpload component */}
+      <WebcamCapture />
       <button 
         className="OCR-button"
         onClick={extractTextFromImage} disabled={isProcessing || !image}>
