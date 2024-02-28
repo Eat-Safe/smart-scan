@@ -1,6 +1,10 @@
 import React, { useRef, useState, useEffect } from 'react';
 
-const WebcamCapture = () => {
+interface WebcamCaptureProps {
+  onCapture: (imageSrc: string) => void;
+}
+
+const WebcamCapture: React.FC<WebcamCaptureProps> = ({ onCapture }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [imageSrc, setImageSrc] = useState<string | null>(null);
   const [isVideoVisible, setIsVideoVisible] = useState(true);
@@ -40,12 +44,15 @@ const WebcamCapture = () => {
     const imageDataUrl = canvas.toDataURL('image/png');
     setImageSrc(imageDataUrl);
     setIsVideoVisible(false); // Hide the video element after taking the picture
+    if (imageDataUrl) {
+      onCapture(imageDataUrl);
+    }
   };
-
+//USED IMAGE UPLOAD BUTTON on take picture
   return (
     <div>
       {isVideoVisible && <video ref={videoRef} autoPlay style={{ width: '100%' }}></video>}
-      <button onClick={takePicture}>Take Picture</button>
+      <button className="image-upload-button" onClick={takePicture}>Take Picture</button>
       {imageSrc && <img src={imageSrc} alt="Captured" style={{ width: '100%' }} />}
     </div>
   );
