@@ -1,3 +1,18 @@
+/* App.css */
+
+body {
+  margin: 0;
+  padding: 0;
+  background: url('https://cdn.dribbble.com/users/175827/screenshots/4632130/media/6c4e6f5ad7fd81c6623180d6700d07c0.png') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.App {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #FFFFFF; /* Set your desired text color */
+}
+
 .App {
   text-align: center;
 }
@@ -14,7 +29,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #535b41;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -38,8 +53,8 @@
 }
 
 .image-upload-button {
-  background-color: #bad4d5; /* A verdant hue */
-  color: rgb(0, 0, 0);
+  background-color: #535b41; /* A verdant hue */
+  color: rgb(252, 251, 251);
   padding: 10px 24px;
   margin: 10px;
   border: none;
@@ -47,12 +62,12 @@
   cursor: pointer;
 }
 .image-upload-button:hover {
-  background-color: #457672;
+  background-color: #535b41;
 }
 
 .OCR-button {
-  background-color: #939696; /* A verdant hue */
-  color: rgb(0, 0, 0);
+  background-color: #535b41; /* A verdant hue */
+  color: rgb(246, 242, 242);
   padding: 10px 24px;
   margin: 10px;
   border: none;
@@ -60,5 +75,12 @@
   cursor: pointer;
 }
 .OCR-button:hover {
-  background-color: #5e7272;
+  background-color: #535b41;
 }
+
+/* In your CSS file */
+.captured-image {
+  width: 100%;
+  /* Add more styling as needed */
+}
+

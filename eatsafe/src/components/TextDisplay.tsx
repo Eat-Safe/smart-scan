@@ -8,8 +8,9 @@ interface TextDisplayProps {
 const TextDisplay: React.FC<TextDisplayProps> = ({ text }) => {
   return (
     <div className="text-display">
+      <div className="overlay"></div>
       {/* Conditional rendering: if text is not an empty string, display it */}
-      {text && <p>Extracted Text: {text}</p>}
+      {text && <p className ="text-content">Extracted Text: {text}</p>}
     </div>
   );
 };

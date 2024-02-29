@@ -1,8 +1,11 @@
 /* FileUpload.css */
 
 .file-upload {
-    margin: 1rem;
-    padding: 1rem;
-    /* Add additional styling as needed */
-  }
-  
+  margin: 7rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}

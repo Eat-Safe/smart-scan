@@ -1,5 +1,12 @@
 # smart-scan
-Base for the project "EatSafe" 
+- The base for the project "EatSafe" 
+- Link to website: https://eat-safe.github.io/smart-scan/
 
-Web application used for checking for allergens
+# Project Info
+- the main branch is where finalized development code is
+- the gh-pages branch is the main driver for the site hosted
+    - This is where you deploy the code (after pulling changes from main)
+
+# About
+- Web application used for checking for allergens
 
