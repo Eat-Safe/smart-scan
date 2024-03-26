@@ -6,6 +6,7 @@ import WebcamCapture from './components/WebcamCapture';
 import TextDisplay from './components/TextDisplay';
 import AllergensDisplay from './components/AllergensDisplay'; 
 import allergensList from './allergens.json';
+import RetakePhoto from './components/RetakePhoto';
 
 
 declare global {
@@ -73,6 +74,7 @@ function App() {
       <Header />
       <FileUpload onFileSelect={handleImageChange} />
       <WebcamCapture onCapture={handleImageCapture}/>
+      <RetakePhoto/>
       {/* Removed the button as extractTextFromImage is now called automatically */}
       {isProcessing ? <p>Extracting...</p> : <TextDisplay text={ocrText} />}
       <AllergensDisplay allergens={allergens} />
