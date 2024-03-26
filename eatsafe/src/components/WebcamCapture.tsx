@@ -1,9 +1,10 @@
 import React, { useRef, useState, useEffect } from 'react';
 
 interface WebcamCaptureProps {
-  onCapture: (imageSrc: string) => void;
+  onCapture: (imageSrc: string) => void; // prop to handle the captured image
 }
 
+// The WebcamCapture component takes a single prop: onCapture, which is a function that gets called with the captured image's data URL
 const WebcamCapture: React.FC<WebcamCaptureProps> = ({ onCapture }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [imageSrc, setImageSrc] = useState<string | null>(null);
