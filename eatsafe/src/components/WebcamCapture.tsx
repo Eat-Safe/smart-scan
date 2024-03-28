@@ -50,11 +50,12 @@ const WebcamCapture: React.FC<WebcamCaptureProps> = ({ onCapture }) => {
     }
   };
 //USED IMAGE UPLOAD BUTTON on take picture
+//Take out the , transform: 'scaleX(-1)' to invert the stream
   return (
     <div>
-      {isVideoVisible && <video ref={videoRef} autoPlay style={{ width: '100%' }}></video>}
+      {isVideoVisible && <video ref={videoRef} autoPlay style={{ width: '95%', transform: 'scaleX(-1)' }}></video>}
       <button className="image-upload-button" onClick={takePicture}>Take Picture</button>
-      {imageSrc && <img src={imageSrc} alt="Captured" style={{ width: '100%' }} />}
+      {imageSrc && <img src={imageSrc} alt="Captured" style={{ width: '95%' }} />}
     </div>
   );
 };
