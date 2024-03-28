@@ -8,9 +8,9 @@ const RetakePhoto: React.FC = () => {
   };
 
   return (
-    <div className="file-upload">
+    <div className=".image-upload-button">
       {/* Use onClick and pass the refreshPage function */}
-      <input type="button" value="Refresh" onClick={refreshPage} />
+      <button className="image-upload-button" onClick={refreshPage}>Retake Picture</button>
     </div>
   );
 };
