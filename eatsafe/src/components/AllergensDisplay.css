@@ -29,3 +29,7 @@
   line-height: 1.6; 
   margin: 0 0 10px 0; 
 }
+.allergen-status-safe {
+  color: green; 
+  margin-top: -20px;
+}
