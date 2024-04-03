@@ -28,22 +28,38 @@
   position: absolute;
   top: 100%;
   left: 0;
+  width: 30%;
   background-color: #535b41;
   color: white;
-  padding: 3.5rem;
-  border-radius: 4px;
+  padding: 0.5rem;
+  border-radius: 0px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
 }
 
 .menu.visible {
   display: flex;
 }
 
-.menu p {
+.menu p,
+.menu p a { /* Styles for paragraphs and anchor tags */
   margin: 0.5rem 0;
+  padding: 8px 10px; /* Consistent padding for clickable area */
+  font-size: 1rem; /* Matching font size for uniformity */
+  color: white; /* Text color for readability */
+  background-color: transparent; /* Transparent background by default */
+  text-align: middle;
+  text-decoration: none; /* No underline for a cleaner look */
+  display: block; /* Makes the link fill the area for easier clicking */
+  transition: background-color 0.3s ease; /* Smooth transition for interactive states */
+}
+
+.menu p a:hover,
+.menu p a:active { /* Interactive states for hover and active clicks */
+  background-color: #3e8e41; /* Slightly darker background on interaction */
+  text-decoration: none; /* Maintain no underline on hover */
 }
 
 .menu-icon:hover + .menu {
-  visibility: visible;
-  opacity: 1;
+  display: flex; /* Show the menu on hover */
 }
