@@ -23,8 +23,6 @@ const Header = () => {
         <p><a href="https://www.foodallergy.org/living-food-allergies/food-allergy-essentials/common-allergens" target="_blank" rel="noopener noreferrer">
           Resources
           </a></p>
-        <p> Upload Image</p>
-        <p>Search Allergen</p>
       </div>
     </div>
   );
