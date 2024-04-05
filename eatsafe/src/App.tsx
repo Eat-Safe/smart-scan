@@ -6,6 +6,7 @@ import WebcamCapture from './components/WebcamCapture';
 import TextDisplay from './components/TextDisplay';
 import AllergensDisplay from './components/AllergensDisplay'; 
 import allergensList from './allergens.json';
+import InfoBox from './components/InfoBox';
 
 
 
@@ -80,6 +81,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <InfoBox />
       <WebcamCapture onCapture={handleImageCapture} />
       {/* Removed the button as extractTextFromImage is now called automatically */}
       {isProcessing ? <p>Extracting...</p> : <TextDisplay text={ocrText} />}

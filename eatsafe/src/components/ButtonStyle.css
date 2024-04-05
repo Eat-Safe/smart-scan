@@ -18,6 +18,9 @@
   width: 140px;
   height: 60px;
 }
+.button-style:hover {
+  background-color: rgba(142, 142, 104, 0.9);
+}
 
 .upload-style {
   background-color: #535b41; /* A verdant hue */
@@ -31,4 +34,8 @@
   height: 38px;
   font-size: 15px;
   justify-content: center;
+}
+
+.upload-style:hover {
+  background-color: rgba(142, 142, 104, 0.9);
 }
