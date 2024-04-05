@@ -1,0 +1,38 @@
+.collapsible-container {
+    padding-top: 2%;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+.collapsible {
+    background-color: #535b41; /* A verdant hue */
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.collapsible:hover {
+    background-color: rgba(142, 142, 104, 0.9);
+}
+.active{
+    border-radius: 10px 10px 0px 0px;
+}
+
+.content {
+    padding: 35px;
+    font-size: 70%;
+    text-align: left;
+    max-height: 1000px; /* Adjusted to ensure content is visible by default */
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #535b41; /* A verdant hue */
+    margin: 0; /* Remove any potential margins */
+    border-radius: 0px 0px 10px 10px;
+}

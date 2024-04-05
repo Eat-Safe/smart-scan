@@ -18,13 +18,20 @@ const Header = () => {
       <div className="spacer"></div>
 
       <div className={`menu ${isMenuOpen ? 'visible' : ''}`}>
-        {/* Add your menu items and styling here */}
-        <p>Info: About us</p>
-        <p><a href="https://www.foodallergy.org/living-food-allergies/food-allergy-essentials/common-allergens" target="_blank" rel="noopener noreferrer">
-          Resources
-          </a></p>
-        <p> Upload Image</p>
-        <p>Search Allergen</p>
+
+        {/* 'Home' in hamburger menu */}
+        <p>
+        <a href="/">Home</a>
+        </p>
+
+        {/* 'About Us' in hamburger menu */}
+        <p>About us</p>
+
+        {/* 'Resources' in hamburger menu */}
+        <p>
+        <a href="https://www.foodallergy.org/living-food-allergies/food-allergy-essentials/common-allergens" target="_blank" rel="noopener noreferrer">Resources</a>
+        </p>
+        
       </div>
     </div>
   );

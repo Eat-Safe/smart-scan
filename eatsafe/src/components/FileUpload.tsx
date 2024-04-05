@@ -1,5 +1,5 @@
 import React from 'react';
-import './FileUpload.css'; // Make sure to create a FileUpload.css file for styling
+import './ButtonStyle.css'; // Make sure to create a FileUpload.css file for styling
 
 interface FileUploadProps {
   onFileSelect: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -7,7 +7,7 @@ interface FileUploadProps {
 
 const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect }) => {
   return (
-    <div className="file-upload">
+    <div className="button-container">
       <input
         type="file"
         onChange={onFileSelect}
@@ -15,9 +15,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect }) => {
         id="fileInput"
         style={{ display: 'none' }}
       />
-      <label htmlFor="fileInput" className="image-upload-button">
-        Upload Image
-      </label>
+      <label htmlFor="fileInput" className="upload-style">Upload Image</label>
     </div>
   );
 };

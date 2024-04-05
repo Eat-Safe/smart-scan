@@ -1,5 +1,5 @@
 import React from 'react';
-import './FileUpload.css';
+import './ButtonStyle.css';
 
 const RetakePhoto: React.FC = () => {
   // Function to refresh the page
@@ -8,9 +8,9 @@ const RetakePhoto: React.FC = () => {
   };
 
   return (
-    <div className=".image-upload-button">
+    <div className="button-container">
       {/* Use onClick and pass the refreshPage function */}
-      <button className="image-upload-button" onClick={refreshPage}>Retake Picture</button>
+      <button className="button-style" onClick={refreshPage}>Retake Picture</button>
     </div>
   );
 };
