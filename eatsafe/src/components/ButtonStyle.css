@@ -4,7 +4,6 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  text-align:center;
 }
 
 .button-style {
@@ -30,10 +29,11 @@
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  width: 95px;
-  height: 38px;
+  width: 140px;
+  height: 28px;
   font-size: 15px;
-  justify-content: center;
+  text-align:center;
+  padding: 10%;
 }
 
 .upload-style:hover {
