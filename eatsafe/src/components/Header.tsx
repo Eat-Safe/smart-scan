@@ -19,10 +19,13 @@ const Header = () => {
 
       <div className={`menu ${isMenuOpen ? 'visible' : ''}`}>
         {/* Add your menu items and styling here */}
-        <p>Info: About us</p>
-        <p><a href="https://www.foodallergy.org/living-food-allergies/food-allergy-essentials/common-allergens" target="_blank" rel="noopener noreferrer">
-          Resources
-          </a></p>
+        <p>
+        <a href="/">Home</a>
+        </p>
+        <p>About us</p>
+        <p>
+        <a href="https://www.foodallergy.org/living-food-allergies/food-allergy-essentials/common-allergens" target="_blank" rel="noopener noreferrer">Resources</a>
+        </p>
       </div>
     </div>
   );
