@@ -71,11 +71,11 @@ const WebcamCapture: React.FC<WebcamCaptureProps> = ({ onCapture }) => {
   return (
     <div>
       {isVideoVisible && <video ref={videoRef} autoPlay style={{ width: '95%', transform: 'scaleX(-1)', paddingTop: '2%'}}></video>}
-      {imageSrc && <img src={imageSrc} alt="Captured" style={{ width: '95%', paddingTop: '2%' }} />}
+      {imageSrc && <img src={imageSrc} alt="Captured" style={{ width: '95%', paddingTop: '2%'}} />}
       <div className ="button-container" >
-      <button className="button-style" onClick={takePicture}>Take Picture</button>
-      <RetakePhoto/>
       <FileUpload onFileSelect={handleImageChange} />
+      <RetakePhoto />
+      <button className="button-style" onClick={takePicture}>Take Picture</button>
       </div>
     </div>
   );
