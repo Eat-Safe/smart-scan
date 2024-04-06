@@ -7,6 +7,7 @@ import TextDisplay from './components/TextDisplay';
 import AllergensDisplay from './components/AllergensDisplay'; 
 import allergensList from './allergens.json';
 import InfoBox from './components/InfoBox';
+import IngredientSaver from './components/IngredientSaver';
 
 
 
@@ -22,6 +23,7 @@ function App() {
   const [isProcessing, setIsProcessing] = useState(false);
   const [allergens, setAllergens] = useState<string[]>([]);
   const [hasChecked, setHasChecked] = useState(false);
+  const [savedAllergen, setSavedAllergen] = useState<string>('')
 
 
   useEffect(() => {
@@ -58,6 +60,7 @@ function App() {
     const freeAllergens = textLowercased.match(freeRegex) || [];
     const allergenFreeList = freeAllergens.map(allergenFree =>
       allergenFree.replace(/[- ]?free/, '').trim()
+      
     );
   
     
@@ -70,6 +73,10 @@ function App() {
 
       return textLowercased.includes(allergenLowercased);
     });
+     // After detecting allergens from text, check for a saved allergen
+    if (savedAllergen && !detectedAllergens.includes(savedAllergen.toLowerCase())) {
+      detectedAllergens.push(savedAllergen.toLowerCase());
+    }
   
     setAllergens(detectedAllergens); 
     setHasChecked(true);
@@ -81,6 +88,7 @@ function App() {
     <div className="App">
       <Header />
       <InfoBox />
+      <IngredientSaver />
       <WebcamCapture onCapture={handleImageCapture} />
       {/* Removed the button as extractTextFromImage is now called automatically */}
       {isProcessing ? <p>Extracting...</p> : <TextDisplay text={ocrText} />}
