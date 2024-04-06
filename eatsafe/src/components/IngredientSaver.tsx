@@ -1,27 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Dispatch, SetStateAction } from 'react';
 
-const IngredientSaver: React.FC = () => {
+// Define an interface for the component's props
+interface IngredientSaverProps {
+  savedIngredients: string[];
+  setSavedIngredients: Dispatch<SetStateAction<string[]>>;
+}
+
+const IngredientSaver: React.FC<IngredientSaverProps> = ({ savedIngredients, setSavedIngredients }) => {
   const [ingredient, setIngredient] = useState('');
-  const [savedIngredients, setSavedIngredients] = useState<string[]>([]);
-
-  useEffect(() => {
-    const loadedIngredients = localStorage.getItem('ingredients');
-    if (loadedIngredients) {
-      setSavedIngredients(JSON.parse(loadedIngredients));
-    }
-  }, []);
 
   const handleSaveIngredient = () => {
     const updatedIngredients = [...savedIngredients, ingredient];
     localStorage.setItem('ingredients', JSON.stringify(updatedIngredients));
-    setSavedIngredients(updatedIngredients);
-    setIngredient('');
+    setSavedIngredients(updatedIngredients); // Update the shared state
+    setIngredient(''); // Clear the input field
   };
 
   const handleDeleteIngredient = (ingredientToDelete: string) => {
     const updatedIngredients = savedIngredients.filter(ingredient => ingredient !== ingredientToDelete);
     localStorage.setItem('ingredients', JSON.stringify(updatedIngredients));
-    setSavedIngredients(updatedIngredients);
+    setSavedIngredients(updatedIngredients); // Update the shared state
   };
 
   return (
@@ -48,5 +46,3 @@ const IngredientSaver: React.FC = () => {
 };
 
 export default IngredientSaver;
-
-
