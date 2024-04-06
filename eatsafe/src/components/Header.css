@@ -6,6 +6,7 @@
   background-color: #535b41; /* Adjust the color to match your design */
   color: white;
   position: relative; /* Ensure that the .menu position is relative to .header */
+  z-index: 9999;
 }
 
 .menu-icon {

@@ -1,4 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
+import RetakePhoto from './RetakePhoto';
+import FileUpload from './FileUpload';
 
 interface WebcamCaptureProps {
   onCapture: (imageSrc: string) => void; // prop to handle the captured image
@@ -9,6 +11,7 @@ const WebcamCapture: React.FC<WebcamCaptureProps> = ({ onCapture }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [imageSrc, setImageSrc] = useState<string | null>(null);
   const [isVideoVisible, setIsVideoVisible] = useState(true);
+  const [image, setImage] = useState<string | ArrayBuffer | null>(null);
 
   useEffect(() => {
     startVideo();
@@ -30,6 +33,20 @@ const WebcamCapture: React.FC<WebcamCaptureProps> = ({ onCapture }) => {
       alert("Error accessing camera. Please ensure it is not being used by another application and that you have given permission.");
     }
   };
+  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files[0]) {
+      const reader = new FileReader();
+      
+      reader.onload = (e: ProgressEvent<FileReader>) => {
+        if (e.target?.result) {
+          setImage(e.target.result);
+        }
+      };
+      
+      reader.readAsDataURL(event.target.files[0]);
+    }
+  };
+
 
   const takePicture = () => {
     if (!videoRef.current) return;
@@ -53,9 +70,13 @@ const WebcamCapture: React.FC<WebcamCaptureProps> = ({ onCapture }) => {
 //Take out the , transform: 'scaleX(-1)' to invert the stream
   return (
     <div>
-      {isVideoVisible && <video ref={videoRef} autoPlay style={{ width: '95%', transform: 'scaleX(-1)' }}></video>}
-      <button className="image-upload-button" onClick={takePicture}>Take Picture</button>
-      {imageSrc && <img src={imageSrc} alt="Captured" style={{ width: '95%' }} />}
+      {isVideoVisible && <video ref={videoRef} autoPlay style={{ width: '95%', transform: 'scaleX(-1)', paddingTop: '2%'}}></video>}
+      {imageSrc && <img src={imageSrc} alt="Captured" style={{ width: '95%', paddingTop: '2%' }} />}
+      <div className ="button-container" >
+      <button className="button-style" onClick={takePicture}>Take Picture</button>
+      <RetakePhoto/>
+      <FileUpload onFileSelect={handleImageChange} />
+      </div>
     </div>
   );
 };

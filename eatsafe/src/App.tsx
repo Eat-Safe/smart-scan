@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Header from './components/Header';
 import FileUpload from './components/FileUpload';
-import WebcamCapture from './components/WebcamCapture';
+import WebcamCapture from './components/WebcamCapture'; 
 import TextDisplay from './components/TextDisplay';
 import AllergensDisplay from './components/AllergensDisplay'; 
 import allergensList from './allergens.json';
-import RetakePhoto from './components/RetakePhoto';
+import InfoBox from './components/InfoBox';
+
 
 
 declare global {
@@ -22,19 +23,6 @@ function App() {
   const [allergens, setAllergens] = useState<string[]>([]);
   const [hasChecked, setHasChecked] = useState(false);
 
-  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.files && event.target.files[0]) {
-      const reader = new FileReader();
-      
-      reader.onload = (e: ProgressEvent<FileReader>) => {
-        if (e.target?.result) {
-          setImage(e.target.result);
-        }
-      };
-      
-      reader.readAsDataURL(event.target.files[0]);
-    }
-  };
 
   useEffect(() => {
     // Automatically call extractTextFromImage when image state changes and is not null
@@ -93,9 +81,8 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <FileUpload onFileSelect={handleImageChange} />
-      <WebcamCapture onCapture={handleImageCapture}/>
-      <RetakePhoto/>
+      <InfoBox />
+      <WebcamCapture onCapture={handleImageCapture} />
       {/* Removed the button as extractTextFromImage is now called automatically */}
       {isProcessing ? <p>Extracting...</p> : <TextDisplay text={ocrText} />}
       <AllergensDisplay allergens={allergens} />

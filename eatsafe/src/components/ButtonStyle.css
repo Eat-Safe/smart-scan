@@ -1,0 +1,41 @@
+/* ButtonStyle.css */
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.button-style {
+  background-color: #535b41; /* A verdant hue */
+  color: rgb(252, 251, 251);
+  padding: 10px 24px;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 140px;
+  height: 60px;
+}
+.button-style:hover {
+  background-color: rgba(142, 142, 104, 0.9);
+}
+
+.upload-style {
+  background-color: #535b41; /* A verdant hue */
+  color: rgb(252, 251, 251);
+  padding: 10px 24px;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 140px;
+  height: 28px;
+  font-size: 15px;
+  text-align:center;
+  padding: 10%;
+}
+
+.upload-style:hover {
+  background-color: rgba(142, 142, 104, 0.9);
+}
