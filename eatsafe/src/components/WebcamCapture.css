@@ -1,6 +1,6 @@
 /* WebcamCapture.module.css */
 .videoStream {
-    width: 80%; /* Adjust the width as needed */
+    width: 60%; /* Adjust the width as needed */
     border: 3px solid #0e2f0b; /* Example border: solid, 3 pixels, blue */
    
     transform: scaleX(-1); /* Mirror the video stream */
@@ -8,6 +8,6 @@
   }
   
   .capturedImage {
-    width: 80%; /* Match the video stream width or as needed */
+    width: 60%; /* Match the video stream width or as needed */
   }
   

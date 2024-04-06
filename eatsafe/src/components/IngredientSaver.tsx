@@ -1,29 +1,27 @@
 import React, { useState, useEffect } from 'react';
 
 const IngredientSaver: React.FC = () => {
-  const [ingredient, setIngredient] = useState(''); // Holds the current input from the user
-  const [savedIngredient, setSavedIngredient] = useState(''); // Holds the saved ingredient from localStorage
+  const [ingredient, setIngredient] = useState('');
+  const [savedIngredients, setSavedIngredients] = useState<string[]>([]);
 
-  // Effect hook to load the saved ingredient from localStorage when the component mounts
   useEffect(() => {
-    const loadedIngredient = localStorage.getItem('ingredient');
-    if (loadedIngredient) {
-      setSavedIngredient(loadedIngredient);
+    const loadedIngredients = localStorage.getItem('ingredients');
+    if (loadedIngredients) {
+      setSavedIngredients(JSON.parse(loadedIngredients));
     }
   }, []);
 
-  // Function to handle saving the ingredient to localStorage
   const handleSaveIngredient = () => {
-    localStorage.setItem('ingredient', ingredient); // Save the current ingredient to localStorage
-    setSavedIngredient(ingredient); // Update the state to reflect the new saved ingredient
-    setIngredient(''); // Clear the input field
-    alert('Ingredient saved!'); // Optional: Alert the user that the ingredient has been saved
+    const updatedIngredients = [...savedIngredients, ingredient];
+    localStorage.setItem('ingredients', JSON.stringify(updatedIngredients));
+    setSavedIngredients(updatedIngredients);
+    setIngredient('');
   };
 
-  // Function to handle deleting the saved ingredient from localStorage
-  const handleDeleteIngredient = () => {
-    localStorage.removeItem('ingredient'); // Remove the ingredient from localStorage
-    setSavedIngredient(''); // Update the state to reflect the deletion
+  const handleDeleteIngredient = (ingredientToDelete: string) => {
+    const updatedIngredients = savedIngredients.filter(ingredient => ingredient !== ingredientToDelete);
+    localStorage.setItem('ingredients', JSON.stringify(updatedIngredients));
+    setSavedIngredients(updatedIngredients);
   };
 
   return (
@@ -35,15 +33,20 @@ const IngredientSaver: React.FC = () => {
         placeholder="Enter an ingredient"
       />
       <button onClick={handleSaveIngredient}>Save Ingredient</button>
-      {savedIngredient && (
-        <div>
-          <p>Last saved ingredient: {savedIngredient}</p>
-          <button onClick={handleDeleteIngredient}>Delete Ingredient</button>
-        </div>
+      {savedIngredients.length > 0 && (
+        <ul>
+          {savedIngredients.map((savedIngredient, index) => (
+            <li key={index}>
+              {savedIngredient}
+              <button onClick={() => handleDeleteIngredient(savedIngredient)}>Delete</button>
+            </li>
+          ))}
+        </ul>
       )}
     </div>
   );
 };
 
 export default IngredientSaver;
+
 

@@ -22,14 +22,12 @@ function App() {
   const [isProcessing, setIsProcessing] = useState(false);
   const [allergens, setAllergens] = useState<string[]>([]);
   const [hasChecked, setHasChecked] = useState(false);
-  const [savedAllergen, setSavedAllergen] = useState<string>('')
+  const [savedAllergens, setSavedAllergens] = useState<string[]>([])
 
   useEffect(() => {
-    // Load the saved allergen when the component mounts
-    const loadedAllergen = localStorage.getItem('ingredient');
-    if (loadedAllergen) {
-      setSavedAllergen(loadedAllergen);
-    }
+    // Load the saved allergens when the component mounts
+    const loadedAllergens = localStorage.getItem('ingredients');
+    setSavedAllergens(loadedAllergens ? JSON.parse(loadedAllergens) : []);
   }, []);
 
   useEffect(() => {
@@ -66,17 +64,21 @@ function App() {
     const freeAllergens = textLowercased.match(freeRegex) || [];
     const allergenFreeList = freeAllergens.map(allergenFree =>
       allergenFree.replace(/[- ]?free/, '').trim()
-      
     );
   
-     let detectedAllergens = allergensList.filter(allergen => !allergenFreeList.includes(allergen.toLowerCase()) && textLowercased.includes(allergen.toLowerCase()));
-
-    // Check for the saved allergen
-    const savedAllergenLowercased = savedAllergen.toLowerCase();
-    if (savedAllergen && textLowercased.includes(savedAllergenLowercased) && !detectedAllergens.includes(savedAllergenLowercased)) {
-      detectedAllergens.push(savedAllergenLowercased);
-    }
-
+    // Assuming savedAllergens is now an array of strings
+    let detectedAllergens = allergensList.filter(allergen =>
+      !allergenFreeList.includes(allergen.toLowerCase()) && textLowercased.includes(allergen.toLowerCase())
+    );
+  
+    // Iterate over each saved allergen
+    savedAllergens.forEach(savedAllergen => {
+      const allergenLowercased = savedAllergen.toLowerCase();
+      if (textLowercased.includes(allergenLowercased) && !detectedAllergens.includes(allergenLowercased)) {
+        detectedAllergens.push(allergenLowercased);
+      }
+    });
+  
     setAllergens(detectedAllergens);
     setHasChecked(true);
   };
