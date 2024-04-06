@@ -33,6 +33,7 @@ const WebcamCapture: React.FC<WebcamCaptureProps> = ({ onCapture }) => {
       alert("Error accessing camera. Please ensure it is not being used by another application and that you have given permission.");
     }
   };
+
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
@@ -40,6 +41,7 @@ const WebcamCapture: React.FC<WebcamCaptureProps> = ({ onCapture }) => {
       reader.onload = (e: ProgressEvent<FileReader>) => {
         if (e.target?.result) {
           setImage(e.target.result);
+          onCapture(e.target.result as string);
         }
       };
       
