@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Header from './components/Header';
-import FileUpload from './components/FileUpload';
 import WebcamCapture from './components/WebcamCapture'; 
 import TextDisplay from './components/TextDisplay';
 import AllergensDisplay from './components/AllergensDisplay'; 
@@ -25,6 +24,13 @@ function App() {
   const [hasChecked, setHasChecked] = useState(false);
   const [savedAllergen, setSavedAllergen] = useState<string>('')
 
+  useEffect(() => {
+    // Load the saved allergen when the component mounts
+    const loadedAllergen = localStorage.getItem('ingredient');
+    if (loadedAllergen) {
+      setSavedAllergen(loadedAllergen);
+    }
+  }, []);
 
   useEffect(() => {
     // Automatically call extractTextFromImage when image state changes and is not null
@@ -63,22 +69,15 @@ function App() {
       
     );
   
-    
-    const detectedAllergens = allergensList.filter(allergen => {
-      const allergenLowercased = allergen.toLowerCase();
-      
-      if (allergenFreeList.includes(allergenLowercased)) {
-        return false;
-      }
+     let detectedAllergens = allergensList.filter(allergen => !allergenFreeList.includes(allergen.toLowerCase()) && textLowercased.includes(allergen.toLowerCase()));
 
-      return textLowercased.includes(allergenLowercased);
-    });
-     // After detecting allergens from text, check for a saved allergen
-    if (savedAllergen && !detectedAllergens.includes(savedAllergen.toLowerCase())) {
-      detectedAllergens.push(savedAllergen.toLowerCase());
+    // Check for the saved allergen
+    const savedAllergenLowercased = savedAllergen.toLowerCase();
+    if (savedAllergen && textLowercased.includes(savedAllergenLowercased) && !detectedAllergens.includes(savedAllergenLowercased)) {
+      detectedAllergens.push(savedAllergenLowercased);
     }
-  
-    setAllergens(detectedAllergens); 
+
+    setAllergens(detectedAllergens);
     setHasChecked(true);
   };
   
