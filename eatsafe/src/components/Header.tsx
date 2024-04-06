@@ -25,7 +25,9 @@ const Header = () => {
         </p>
 
         {/* 'About Us' in hamburger menu */}
-        <p>About us</p>
+        <p>
+        <a href="/about-us/">About us</a>
+        </p>
 
         {/* 'Resources' in hamburger menu */}
         <p>
