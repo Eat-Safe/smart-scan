@@ -6,6 +6,7 @@ import TextDisplay from './components/TextDisplay';
 import AllergensDisplay from './components/AllergensDisplay'; 
 import allergensList from './allergens.json';
 import InfoBox from './components/InfoBox';
+import IngredientSaver from './components/IngredientSaver';
 
 
 
@@ -21,7 +22,13 @@ function HomePage() {
   const [isProcessing, setIsProcessing] = useState(false);
   const [allergens, setAllergens] = useState<string[]>([]);
   const [hasChecked, setHasChecked] = useState(false);
+  const [savedAllergens, setSavedAllergens] = useState<string[]>([])
 
+  useEffect(() => {
+    // Load the saved allergens when the component mounts
+    const loadedAllergens = localStorage.getItem('ingredients');
+    setSavedAllergens(loadedAllergens ? JSON.parse(loadedAllergens) : []);
+  }, []);
 
   useEffect(() => {
     // Automatically call extractTextFromImage when image state changes and is not null
@@ -59,18 +66,20 @@ function HomePage() {
       allergenFree.replace(/[- ]?free/, '').trim()
     );
   
-    
-    const detectedAllergens = allergensList.filter(allergen => {
-      const allergenLowercased = allergen.toLowerCase();
-      
-      if (allergenFreeList.includes(allergenLowercased)) {
-        return false;
+    // Assuming savedAllergens is now an array of strings
+    let detectedAllergens = allergensList.filter(allergen =>
+      !allergenFreeList.includes(allergen.toLowerCase()) && textLowercased.includes(allergen.toLowerCase())
+    );
+  
+    // Iterate over each saved allergen
+    savedAllergens.forEach(savedAllergen => {
+      const allergenLowercased = savedAllergen.toLowerCase();
+      if (textLowercased.includes(allergenLowercased) && !detectedAllergens.includes(allergenLowercased)) {
+        detectedAllergens.push(allergenLowercased);
       }
-
-      return textLowercased.includes(allergenLowercased);
     });
   
-    setAllergens(detectedAllergens); 
+    setAllergens(detectedAllergens);
     setHasChecked(true);
   };
   
@@ -80,6 +89,7 @@ function HomePage() {
     <div className="App">
       <Header />
       <InfoBox />
+      <IngredientSaver />
       <WebcamCapture onCapture={handleImageCapture} />
       {/* Removed the button as extractTextFromImage is now called automatically */}
       {isProcessing ? <p>Extracting...</p> : <TextDisplay text={ocrText} />}
