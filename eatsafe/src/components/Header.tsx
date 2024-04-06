@@ -21,7 +21,7 @@ const Header = () => {
 
         {/* 'Home' in hamburger menu */}
         <p>
-        <a href="/">Home</a>
+        <a href="/smart-scan/">Home</a>
         </p>
 
         {/* 'About Us' in hamburger menu */}
