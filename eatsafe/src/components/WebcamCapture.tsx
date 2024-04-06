@@ -33,6 +33,7 @@ const WebcamCapture: React.FC<WebcamCaptureProps> = ({ onCapture }) => {
       alert("Error accessing camera. Please ensure it is not being used by another application and that you have given permission.");
     }
   };
+
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
@@ -40,6 +41,7 @@ const WebcamCapture: React.FC<WebcamCaptureProps> = ({ onCapture }) => {
       reader.onload = (e: ProgressEvent<FileReader>) => {
         if (e.target?.result) {
           setImage(e.target.result);
+          onCapture(e.target.result as string);
         }
       };
       
@@ -71,11 +73,11 @@ const WebcamCapture: React.FC<WebcamCaptureProps> = ({ onCapture }) => {
   return (
     <div>
       {isVideoVisible && <video ref={videoRef} autoPlay style={{ width: '95%', transform: 'scaleX(-1)', paddingTop: '2%'}}></video>}
-      {imageSrc && <img src={imageSrc} alt="Captured" style={{ width: '95%', paddingTop: '2%' }} />}
+      {imageSrc && <img src={imageSrc} alt="Captured" style={{ width: '95%', paddingTop: '2%'}} />}
       <div className ="button-container" >
-      <button className="button-style" onClick={takePicture}>Take Picture</button>
-      <RetakePhoto/>
       <FileUpload onFileSelect={handleImageChange} />
+      <RetakePhoto />
+      <button className="button-style" onClick={takePicture}>Take Picture</button>
       </div>
     </div>
   );

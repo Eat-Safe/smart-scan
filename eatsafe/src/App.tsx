@@ -27,30 +27,29 @@ function App() {
   useEffect(() => {
     // Automatically call extractTextFromImage when image state changes and is not null
     if (image) {
-      extractTextFromImage();
+      extractTextFromImage(image as string); // Pass image as string
     }
   }, [image]); // Dependency array, re-run the effect when `image` changes
 
-
-  const extractTextFromImage = async () => {
-    if (image && typeof image === 'string') {
-      setIsProcessing(true);
-      try {
-        const { data: { text } } = await window.Tesseract.recognize(
-          image,
-          'eng',
-        );
-        setOcrText(text);
-        detectAllergens(text); 
-      } catch (error) {
-        console.error('OCR Error:', error);
-        setOcrText('Failed to extract text. See console for details.');
-      }
-      setIsProcessing(false);
-    }
-  };
   const handleImageCapture = (imageSrc: string) => {
-    setImage(imageSrc); // Use the same state as for the uploaded image
+    setImage(imageSrc);
+    extractTextFromImage(imageSrc); // Call extractTextFromImage with the imageSrc argument
+  };
+  
+  const extractTextFromImage = async (imageSrc: string) => {
+    setIsProcessing(true);
+    try {
+      const { data: { text } } = await window.Tesseract.recognize(
+        imageSrc,
+        'eng',
+      );
+      setOcrText(text);
+      detectAllergens(text); 
+    } catch (error) {
+      console.error('OCR Error:', error);
+      setOcrText('Failed to extract text. See console for details.');
+    }
+    setIsProcessing(false);
   };
 
   const detectAllergens = (text: string) => {
