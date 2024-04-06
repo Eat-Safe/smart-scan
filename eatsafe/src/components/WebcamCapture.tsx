@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import RetakePhoto from './RetakePhoto';
 import FileUpload from './FileUpload';
+import './WebcamCapture.css';
 
 interface WebcamCaptureProps {
   onCapture: (imageSrc: string) => void; // prop to handle the captured image
@@ -70,10 +71,11 @@ const WebcamCapture: React.FC<WebcamCaptureProps> = ({ onCapture }) => {
   };
 //USED IMAGE UPLOAD BUTTON on take picture
 //Take out the , transform: 'scaleX(-1)' to invert the stream
+//{isVideoVisible && <video ref={videoRef} autoPlay style={{ width: '50%', transform: 'scaleX(-1)', paddingTop: '2%'}}></video>}
   return (
     <div>
-      {isVideoVisible && <video ref={videoRef} autoPlay style={{ width: '95%', transform: 'scaleX(-1)', paddingTop: '2%'}}></video>}
-      {imageSrc && <img src={imageSrc} alt="Captured" style={{ width: '95%', paddingTop: '2%'}} />}
+      <video ref={videoRef} autoPlay className="videoStream"></video>
+      {imageSrc && <img src={imageSrc} alt="Captured" className="capturedImage" />}
       <div className ="button-container" >
       <FileUpload onFileSelect={handleImageChange} />
       <RetakePhoto />
