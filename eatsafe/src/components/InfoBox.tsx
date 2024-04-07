@@ -13,7 +13,7 @@ function InfoBox() {
             <button className={`collapsible ${isActive ? 'active' : ''}`} onClick={toggleCollapse}>
                 How To Use:
             </button>
-            {isActive && <p className="content">
+            {isActive && <p className="content-show">
             <strong>WARNING:</strong> This product is currently in development and may provide inaccurate or incorrect answers. It is essential to exercise caution when using this software.
             <br></br><br></br><strong>How To Use:</strong> Upload the a product label or snap a clear picture of one! Our software will extract and identify potential allergens. Review the report at the bottom of the page to see a list of allergies within the product.
             <br></br><br></br><strong>Please keep in mind the following when uploading/taking a picture of the label:</strong>

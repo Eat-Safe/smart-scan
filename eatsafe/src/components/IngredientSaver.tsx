@@ -1,4 +1,5 @@
 import React, { useState, useEffect, Dispatch, SetStateAction } from 'react';
+import "./IngredientSaver.css"
 
 // Define an interface for the component's props
 interface IngredientSaverProps {
@@ -23,14 +24,16 @@ const IngredientSaver: React.FC<IngredientSaverProps> = ({ savedIngredients, set
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        value={ingredient}
-        onChange={(e) => setIngredient(e.target.value)}
-        placeholder="Enter an ingredient"
-      />
-      <button onClick={handleSaveIngredient}>Save Ingredient</button>
+    <div className='container-save'>
+      <label className='content'>
+        <input
+          type="text"
+          value={ingredient}
+          onChange={(e) => setIngredient(e.target.value)}
+          placeholder="Enter an ingredient to search: "
+        />
+        <button className="button" onClick={handleSaveIngredient}>Save Ingredient</button>
+      </label>
       {savedIngredients.length > 0 && (
         <ul>
           {savedIngredients.map((savedIngredient, index) => (
