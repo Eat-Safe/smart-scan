@@ -91,8 +91,8 @@ function HomePage() {
     <div className="App">
       <Header />
       <InfoBox />
-      <IngredientSaver savedIngredients={savedAllergens} setSavedIngredients={setSavedAllergens} />
       <WebcamCapture onCapture={handleImageCapture} />
+      <IngredientSaver savedIngredients={savedAllergens} setSavedIngredients={setSavedAllergens} />
       {/* Removed the button as extractTextFromImage is now called automatically */}
       {isProcessing ? <p>Extracting...</p> : <TextDisplay text={ocrText} />}
       <AllergensDisplay allergens={allergens} />
