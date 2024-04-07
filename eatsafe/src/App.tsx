@@ -5,11 +5,11 @@ import AboutUs from "./AboutUs";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/smart-scan">
       <div>
         <Routes>
-          <Route path="/smart-scan/" element={<HomePage />} />
-          <Route path="/about-us/" element={<AboutUs />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about-us" element={<AboutUs />} />
         </Routes>
       </div>
     </Router>
