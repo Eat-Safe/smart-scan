@@ -27,7 +27,9 @@ function HomePage() {
   useEffect(() => {
     // Load the saved allergens when the component mounts
     const loadedAllergens = localStorage.getItem('ingredients');
-    setSavedAllergens(loadedAllergens ? JSON.parse(loadedAllergens) : []);
+      if(loadedAllergens) {
+        setSavedAllergens(JSON.parse(loadedAllergens));
+      }
   }, []);
 
   useEffect(() => {
@@ -89,7 +91,7 @@ function HomePage() {
     <div className="App">
       <Header />
       <InfoBox />
-      <IngredientSaver />
+      <IngredientSaver savedIngredients={savedAllergens} setSavedIngredients={setSavedAllergens} />
       <WebcamCapture onCapture={handleImageCapture} />
       {/* Removed the button as extractTextFromImage is now called automatically */}
       {isProcessing ? <p>Extracting...</p> : <TextDisplay text={ocrText} />}
