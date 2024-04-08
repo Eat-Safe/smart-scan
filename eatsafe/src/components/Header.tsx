@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; 
 import './Header.css'; // Make sure to create a Header.css file for styling
 
 const Header = () => {
@@ -21,11 +22,13 @@ const Header = () => {
 
         {/* 'Home' in hamburger menu */}
         <p>
-        <a href="/smart-scan/">Home</a>
+        <Link to="/">Home</Link>
         </p>
 
         {/* 'About Us' in hamburger menu */}
-        <p>About us</p>
+        <p>
+        <Link to="/about-us/">About us</Link>
+        </p>
 
         {/* 'Resources' in hamburger menu */}
         <p>
