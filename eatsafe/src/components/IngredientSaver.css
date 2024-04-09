@@ -1,0 +1,56 @@
+.container-save {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 2%;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+.content-save {
+    display: flex;
+    align-items: center;
+    background-color: #535b41;
+    border-radius: 10px;
+    padding: 1% 1%;
+    width: 100%; /* Adjust width to accommodate the input and button */
+}
+
+.input-container {
+    flex: 1;
+    margin-right: 10px; /* Adjust spacing between input and button */
+}
+
+input[type=text] {
+    width: 90%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 12px;
+    background-color: white;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    border-color: darkgray;
+    transition: width 0.4s ease-in-out;
+}
+
+.input-container input[type=text]:focus {
+    width: 100%;
+}
+
+.button {
+    padding: 10px;
+    font-size: 12px;
+    background-color: #555555;
+    text-align: center;
+    color: white;
+    border: 2px solid #ccc;
+    border-color: darkgray;
+    border-radius: 4px;
+}
+
+.button:hover {
+    background-color: rgba(142, 142, 104, 0.9);
+    color: black;
+}
