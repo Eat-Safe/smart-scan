@@ -1,20 +1,29 @@
 .container-save {
     display: flex;
-    align-items: center; /* Align items vertically */
-    justify-content: center; /* Align items horizontally */
-    padding: 2% 10%; /* Shortened padding */
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 2%;
+    padding-left: 3%;
+    padding-right: 3%;
 }
 
-.content {
+.content-save {
+    display: flex;
+    align-items: center;
     background-color: #535b41;
-    width: 100%;
-    text-align: center;
     border-radius: 10px;
     padding: 1% 1%;
+    width: 100%; /* Adjust width to accommodate the input and button */
+}
+
+.input-container {
+    flex: 1;
+    margin-right: 10px; /* Adjust spacing between input and button */
 }
 
 input[type=text] {
-    width: 30%;
+    width: 90%;
+    padding: 10px;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
@@ -23,18 +32,16 @@ input[type=text] {
     background-position: 10px 10px;
     background-repeat: no-repeat;
     border-color: darkgray;
-    padding: 1%;
     transition: width 0.4s ease-in-out;
 }
 
-input[type=text]:focus {
-    width: 50%;
+.input-container input[type=text]:focus {
+    width: 100%;
 }
 
 .button {
-    padding: 1%;
+    padding: 10px;
     font-size: 12px;
-    box-sizing: border-box;
     background-color: #555555;
     text-align: center;
     color: white;
