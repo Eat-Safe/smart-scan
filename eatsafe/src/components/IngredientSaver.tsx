@@ -4,9 +4,10 @@ import React, { useState, useEffect, Dispatch, SetStateAction } from 'react';
 interface IngredientSaverProps {
   savedIngredients: string[];
   setSavedIngredients: Dispatch<SetStateAction<string[]>>;
+  onIngredientsUpdated: () => void;
 }
 
-const IngredientSaver: React.FC<IngredientSaverProps> = ({ savedIngredients, setSavedIngredients }) => {
+const IngredientSaver: React.FC<IngredientSaverProps> = ({ savedIngredients, setSavedIngredients, onIngredientsUpdated }) => {
   const [ingredient, setIngredient] = useState('');
 
   const handleSaveIngredient = () => {
@@ -20,6 +21,7 @@ const IngredientSaver: React.FC<IngredientSaverProps> = ({ savedIngredients, set
     const updatedIngredients = savedIngredients.filter(ingredient => ingredient !== ingredientToDelete);
     localStorage.setItem('ingredients', JSON.stringify(updatedIngredients));
     setSavedIngredients(updatedIngredients); // Update the shared state
+    onIngredientsUpdated(); 
   };
 
   return (
