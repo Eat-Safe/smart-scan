@@ -46,14 +46,12 @@ const IngredientSaver: React.FC<IngredientSaverProps> = ({
             className='input'
           />
         </div>
-        <div className="buttons-container">
           <button className="button-style-two" onClick={handleSaveIngredient}>
             Save Ingredient
           </button>
           <button className="button-style-two" onClick={navigateToSavedIngredients}>
             View Saved Ingredients
           </button>
-        </div>
       </div>
       {showSuccessMessage && <p className="success-message">Ingredient saved successfully!</p>}
     </div>
