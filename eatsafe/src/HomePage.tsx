@@ -22,7 +22,8 @@ function HomePage() {
   const [isProcessing, setIsProcessing] = useState(false);
   const [allergens, setAllergens] = useState<string[]>([]);
   const [hasChecked, setHasChecked] = useState(false);
-  const [savedAllergens, setSavedAllergens] = useState<string[]>([])
+  const [savedAllergens, setSavedAllergens] = useState<string[]>([]);
+  const [searchedAllergens, setSearchedAllergens] = useState<string[]>([]);
 
   useEffect(() => {
     // Load the saved allergens when the component mounts
@@ -60,6 +61,21 @@ function HomePage() {
     setIsProcessing(false);
   };
 
+  const searchSavedAllergensInText = (text: string) => {
+    const textLowercased = text.toLowerCase();
+    const savedAllergens = JSON.parse(localStorage.getItem('ingredients') || '[]');
+    const foundAllergens = savedAllergens.filter((allergen: string) =>
+      textLowercased.includes(allergen.toLowerCase())
+    );
+    setSearchedAllergens(foundAllergens); // update searched allergens' state
+  };
+
+  const handleIngredientsUpdated = () => {
+    if (ocrText) {
+      searchSavedAllergensInText(ocrText); // 重新检查OCR文本
+    }
+  };
+
   const detectAllergens = (text: string) => {
     const textLowercased = text.toLowerCase();
     const freeRegex = /\b(\w+[- ]?free)\b/g; 
@@ -83,6 +99,7 @@ function HomePage() {
   
     setAllergens(detectedAllergens);
     setHasChecked(true);
+    searchSavedAllergensInText(text);
   };
   
   
@@ -91,12 +108,12 @@ function HomePage() {
     <div className="App">
       <Header />
       <InfoBox />
-      <IngredientSaver savedIngredients={savedAllergens} setSavedIngredients={setSavedAllergens} />
+      <IngredientSaver savedIngredients={savedAllergens} setSavedIngredients={setSavedAllergens} onIngredientsUpdated={handleIngredientsUpdated}/>
       <WebcamCapture onCapture={handleImageCapture} />
 
       {/* Removed the button as extractTextFromImage is now called automatically */}
       {isProcessing ? <p>Extracting...</p> : <TextDisplay text={ocrText} />}
-      <AllergensDisplay allergens={allergens} />
+      <AllergensDisplay allergens={allergens} searchedAllergens={searchedAllergens} />
       {hasChecked && allergens.length === 0 && (
       <p className="allergen-status-safe">Safe food, no potential allergens detected.</p>
       )}
