@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/smart-scan/static/css/main.340e79eb.css",
+    "main.css": "/smart-scan/static/css/main.8546235a.css",
     "main.js": "/smart-scan/static/js/main.9cc3a7c8.js",
     "static/js/453.34388f15.chunk.js": "/smart-scan/static/js/453.34388f15.chunk.js",
     "index.html": "/smart-scan/index.html",
-    "main.340e79eb.css.map": "/smart-scan/static/css/main.340e79eb.css.map",
+    "main.8546235a.css.map": "/smart-scan/static/css/main.8546235a.css.map",
     "main.9cc3a7c8.js.map": "/smart-scan/static/js/main.9cc3a7c8.js.map",
     "453.34388f15.chunk.js.map": "/smart-scan/static/js/453.34388f15.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.340e79eb.css",
+    "static/css/main.8546235a.css",
     "static/js/main.9cc3a7c8.js"
   ]
 }
