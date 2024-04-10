@@ -10,7 +10,7 @@ const AllergensDisplay: React.FC<AllergensDisplayProps> = ({ allergens, searched
   return (
     <div className={`allergens-display ${allergens.length > 0 ? 'gradient-background' : ''}`}>
       {allergens.length > 0 && (
-        <p>Allergens Detected: {allergens.join(', ')}</p>
+        <p>Potential Allergens Detected: {allergens.join(', ')}</p>
       )}
       {/* Added display of searched allergens */}
       {searchedAllergens.length > 0 && (

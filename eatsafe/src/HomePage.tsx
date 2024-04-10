@@ -25,6 +25,7 @@ function HomePage() {
   const [savedAllergens, setSavedAllergens] = useState<string[]>([]);
   const [searchedAllergens, setSearchedAllergens] = useState<string[]>([]);
 
+
   useEffect(() => {
     // Load the saved allergens when the component mounts
     const loadedAllergens = localStorage.getItem('ingredients');
@@ -67,6 +68,7 @@ function HomePage() {
     setIsProcessing(false);
   };
 
+ 
   const searchSavedAllergensInText = (text: string) => {
     const textLowercased = text.toLowerCase();
     const savedAllergens = JSON.parse(localStorage.getItem('ingredients') || '[]');
@@ -116,7 +118,6 @@ function HomePage() {
       <InfoBox />
       <IngredientSaver savedIngredients={savedAllergens} setSavedIngredients={setSavedAllergens} onIngredientsUpdated={handleIngredientsUpdated}/>
       <WebcamCapture onCapture={handleImageCapture} />
-
       {/* Removed the button as extractTextFromImage is now called automatically */}
       {isProcessing ? <p>Extracting...</p> : <TextDisplay text={ocrText} />}
       <AllergensDisplay allergens={allergens} searchedAllergens={searchedAllergens} />
