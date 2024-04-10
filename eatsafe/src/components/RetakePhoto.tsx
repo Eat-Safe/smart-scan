@@ -10,7 +10,7 @@ const RetakePhoto: React.FC = () => {
   return (
     <div className="button-container">
       {/* Use onClick and pass the refreshPage function */}
-      <button className="button-style" onClick={refreshPage}>Retake Picture</button>
+      <button className="button-style" onClick={refreshPage}>Reload</button>
     </div>
   );
 };
