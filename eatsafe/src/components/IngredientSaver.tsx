@@ -21,6 +21,7 @@ const IngredientSaver: React.FC<IngredientSaverProps> = ({ savedIngredients, set
     const updatedIngredients = savedIngredients.filter(ingredient => ingredient !== ingredientToDelete);
     localStorage.setItem('ingredients', JSON.stringify(updatedIngredients));
     setSavedIngredients(updatedIngredients); 
+    onIngredientsUpdated(); 
   };
 
   return (
