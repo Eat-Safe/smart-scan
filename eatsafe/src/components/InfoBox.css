@@ -2,6 +2,7 @@
     padding-top: 2%;
     padding-left: 3%;
     padding-right: 3%;
+    padding-bottom: 2%;
 }
 
 .collapsible {
@@ -25,7 +26,7 @@
     border-radius: 10px 10px 0px 0px;
 }
 
-.content {
+.content-show {
     padding: 35px;
     font-size: 70%;
     text-align: left;

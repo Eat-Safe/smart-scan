@@ -110,6 +110,7 @@ function HomePage() {
       <InfoBox />
       <IngredientSaver savedIngredients={savedAllergens} setSavedIngredients={setSavedAllergens} onIngredientsUpdated={handleIngredientsUpdated}/>
       <WebcamCapture onCapture={handleImageCapture} />
+
       {/* Removed the button as extractTextFromImage is now called automatically */}
       {isProcessing ? <p>Extracting...</p> : <TextDisplay text={ocrText} />}
       <AllergensDisplay allergens={allergens} searchedAllergens={searchedAllergens} />
