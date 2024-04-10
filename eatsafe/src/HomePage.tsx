@@ -34,6 +34,12 @@ function HomePage() {
   }, []);
 
   useEffect(() => {
+    if (ocrText) {
+      searchSavedAllergensInText(ocrText); 
+    }
+  }, [savedAllergens]); 
+
+  useEffect(() => {
     // Automatically call extractTextFromImage when image state changes and is not null
     if (image) {
       extractTextFromImage(image as string); // Pass image as string
@@ -72,7 +78,7 @@ function HomePage() {
 
   const handleIngredientsUpdated = () => {
     if (ocrText) {
-      searchSavedAllergensInText(ocrText); // 重新检查OCR文本
+      searchSavedAllergensInText(ocrText); 
     }
   };
 
