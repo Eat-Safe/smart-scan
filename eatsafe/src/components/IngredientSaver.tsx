@@ -43,13 +43,14 @@ const IngredientSaver: React.FC<IngredientSaverProps> = ({
             value={ingredient}
             onChange={(e) => setIngredient(e.target.value)}
             placeholder="Enter an ingredient: "
+            className='input'
           />
         </div>
         <div className="buttons-container">
-          <button className="button" onClick={handleSaveIngredient}>
+          <button className="button-style-two" onClick={handleSaveIngredient}>
             Save Ingredient
           </button>
-          <button className="button" onClick={navigateToSavedIngredients}>
+          <button className="button-style-two" onClick={navigateToSavedIngredients}>
             View Saved Ingredients
           </button>
         </div>
