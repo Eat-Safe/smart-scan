@@ -13,15 +13,15 @@ const IngredientSaver: React.FC<IngredientSaverProps> = ({ savedIngredients, set
   const handleSaveIngredient = () => {
     const updatedIngredients = [...savedIngredients, ingredient];
     localStorage.setItem('ingredients', JSON.stringify(updatedIngredients));
-    setSavedIngredients(updatedIngredients); // Update the shared state
-    setIngredient(''); // Clear the input field
+    setSavedIngredients(updatedIngredients); 
+    setIngredient(''); 
   };
 
   const handleDeleteIngredient = (ingredientToDelete: string) => {
     const updatedIngredients = savedIngredients.filter(ingredient => ingredient !== ingredientToDelete);
     localStorage.setItem('ingredients', JSON.stringify(updatedIngredients));
-    setSavedIngredients(updatedIngredients); // Update the shared state
-    onIngredientsUpdated(); 
+    setSavedIngredients(updatedIngredients); 
+    // onIngredientsUpdated(); 
   };
 
   return (
