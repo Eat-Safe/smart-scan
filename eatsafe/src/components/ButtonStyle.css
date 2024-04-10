@@ -4,16 +4,19 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  padding-left: 2%;
-  padding-right: 2%;
+  padding-left: 3%;
+  padding-right: 3%;
+  width: 94%;
+}
+
+.upload-container {
+  text-align: center;
 }
 
 .button-style {
   background-color: #535b41; /* A verdant hue */
   color: rgb(252, 251, 251);
   padding: 10px 24px;
-  margin: 10px;
-  border: none;
   border-radius: 10px;
   cursor: pointer;
   width: 140px;
@@ -24,18 +27,18 @@
 }
 
 .upload-style {
+  display: block;
+  text-align: center;
+  line-height: 150%;
   background-color: #535b41; /* A verdant hue */
   color: rgb(252, 251, 251);
-  padding: 10px 24px;
-  margin: 10px;
-  border: none;
   border-radius: 10px;
   cursor: pointer;
   width: 140px;
-  height: 28px;
+  height: 42px;
   font-size: 15px;
-  text-align:center;
-  padding: 10%;
+  padding-top: 12%;
+
 }
 
 .upload-style:hover {

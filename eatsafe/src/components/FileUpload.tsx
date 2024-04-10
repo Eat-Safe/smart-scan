@@ -7,7 +7,7 @@ interface FileUploadProps {
 
 const FileUpload: React.FC<FileUploadProps> = ({ onFileSelect }) => {
   return (
-    <div className="button-container">
+    <div className="upload-container">
       <input
         type="file"
         onChange={onFileSelect}
