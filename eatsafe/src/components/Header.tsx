@@ -24,7 +24,10 @@ const Header = () => {
         <p>
         <Link to="/">Home</Link>
         </p>
-
+        {/* 'Saved Ingredients' in hamburger menu */}
+        <p>
+        <Link to="/saved-ingredients">Saved Ingredients</Link>
+        </p>
         {/* 'About Us' in hamburger menu */}
         <p>
         <Link to="/about-us/">About us</Link>
