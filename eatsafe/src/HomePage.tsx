@@ -72,7 +72,7 @@ function HomePage() {
 
   const handleIngredientsUpdated = () => {
     if (ocrText) {
-      searchSavedAllergensInText(ocrText); // 重新检查OCR文本
+      searchSavedAllergensInText(ocrText); 
     }
   };
 
