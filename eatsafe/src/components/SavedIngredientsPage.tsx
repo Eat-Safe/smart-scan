@@ -1,5 +1,6 @@
 // SavedIngredientsPage.tsx
 import React from 'react';
+import Header from './Header';
 
 const SavedIngredientsPage = () => {
 
@@ -14,6 +15,7 @@ const SavedIngredientsPage = () => {
 
   return (
     <div>
+      <Header />
       <h1>Saved Ingredients</h1>
       <ul>
         {savedIngredients.map((ingredient, index) => (
