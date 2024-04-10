@@ -12,10 +12,15 @@ const IngredientSaver: React.FC<IngredientSaverProps> = ({ savedIngredients, set
   const [ingredient, setIngredient] = useState('');
 
   const handleSaveIngredient = () => {
+    if (ingredient.trim() === '') {
+      return; 
+    }
+
     const updatedIngredients = [...savedIngredients, ingredient];
     localStorage.setItem('ingredients', JSON.stringify(updatedIngredients));
     setSavedIngredients(updatedIngredients); 
-    setIngredient(''); 
+    setIngredient('');
+    onIngredientsUpdated();
   };
 
   const handleDeleteIngredient = (ingredientToDelete: string) => {
