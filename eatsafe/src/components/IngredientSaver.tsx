@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Dispatch, SetStateAction } from 'react';
 import "./IngredientSaver.css"
 
+// Define an interface for the component's props
 interface IngredientSaverProps {
   savedIngredients: string[];
   setSavedIngredients: Dispatch<SetStateAction<string[]>>;
@@ -13,13 +14,14 @@ const IngredientSaver: React.FC<IngredientSaverProps> = ({ savedIngredients, set
   const handleSaveIngredient = () => {
     const updatedIngredients = [...savedIngredients, ingredient];
     localStorage.setItem('ingredients', JSON.stringify(updatedIngredients));
-
+    setSavedIngredients(updatedIngredients); 
+    setIngredient(''); 
   };
 
   const handleDeleteIngredient = (ingredientToDelete: string) => {
     const updatedIngredients = savedIngredients.filter(ingredient => ingredient !== ingredientToDelete);
     localStorage.setItem('ingredients', JSON.stringify(updatedIngredients));
-
+    setSavedIngredients(updatedIngredients); 
   };
 
   return (
