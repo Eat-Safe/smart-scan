@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; 
+import HeaderLogoEatSafe from './HeaderLogoEatSafe.png';
 import './Header.css'; // Make sure to create a Header.css file for styling
 
 const Header = () => {
@@ -15,7 +16,7 @@ const Header = () => {
         {/* Here you can add the menu icon */}
         <span>☰</span> {/* This is just a placeholder, replace with your icon */}
       </div>
-      <div className="logo">EATSAFE</div>
+      <div><img className = "logo" src={HeaderLogoEatSafe} alt="logo"/></div>
       <div className="spacer"></div>
 
       <div className={`menu ${isMenuOpen ? 'visible' : ''}`}>
