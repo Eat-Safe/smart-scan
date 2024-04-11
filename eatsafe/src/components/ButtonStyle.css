@@ -22,6 +22,26 @@
   width: 140px;
   height: 60px;
 }
+.delete-style {
+  background-color: #535b41; /* A verdant hue */
+  color: rgb(252, 251, 251);
+  padding: 10px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100px;
+  height: 40px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.delete-container {
+  background-color: #D3D8C3; /* Sage green */
+  transition: padding 30s ease;/*more seemless transition*/
+  padding-top: 10px; /* Initial padding top */
+  padding-bottom: 10px; /* Initial padding bottom */
+}
+ul {
+  padding: 0; /* Remove default padding */
+}
 .button-style:hover {
   background-color: rgba(142, 142, 104, 0.9);
 }
