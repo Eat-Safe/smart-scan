@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+
   background-color: #535b41; /* Adjust the color to match your design */
   color: white;
   position: relative; /* Ensure that the .menu position is relative to .header */
@@ -12,11 +12,13 @@
 .menu-icon {
   font-size: 2rem;
   cursor: pointer;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  justify-content: center;
 }
 
 .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
+  width: 100px;
 }
 
 .spacer {
