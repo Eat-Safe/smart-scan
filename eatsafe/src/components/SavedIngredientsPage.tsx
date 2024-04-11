@@ -1,16 +1,18 @@
 // SavedIngredientsPage.tsx
 import React from 'react';
 import Header from './Header';
+import { useNavigate } from 'react-router-dom';
+
 
 const SavedIngredientsPage = () => {
 
   const savedIngredients: string[] = JSON.parse(localStorage.getItem('ingredients') || '[]');
-
+  const navigate = useNavigate();
 
   const handleDeleteIngredient = (ingredientToDelete: string) => {
     const updatedIngredients = savedIngredients.filter(ing => ing !== ingredientToDelete);
     localStorage.setItem('ingredients', JSON.stringify(updatedIngredients));
-    window.location.reload();
+    navigate('/saved-ingredients'); // Navigate back to the same route
   };
 
   return (
