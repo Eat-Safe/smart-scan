@@ -24,10 +24,10 @@ const SavedIngredientsPage = () => {
   };
 
   return (
-    <div >
+    <div>
       <Header />
-      <h1>Saved Ingredients</h1>
-      <ul className="delete-container">
+      <h1 className="savedIngredients" style={{ textAlign: 'center', color: 'white'}}> SAVED INGREDIENTS </h1>
+      <ul className="delete-container" style={{ listStyleType: 'none', paddingLeft: '10px' }}>
         {savedIngredients.map((ingredient, index) => (
           <li key={index} style={{ fontFamily: 'Arial', fontSize: '16px', color: '#333' }}>
             {ingredient}
