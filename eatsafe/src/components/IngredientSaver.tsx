@@ -1,4 +1,3 @@
-// IngredientSaver.tsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./IngredientSaver.css"
@@ -30,6 +29,12 @@ const IngredientSaver: React.FC<IngredientSaverProps> = ({
     }
   };
 
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      handleSaveIngredient();
+    }
+  };
+
   const navigateToSavedIngredients = () => {
     navigate('/saved-ingredients');
   };
@@ -44,6 +49,7 @@ const IngredientSaver: React.FC<IngredientSaverProps> = ({
             onChange={(e) => setIngredient(e.target.value)}
             placeholder="Enter an ingredient: "
             className='input'
+            onKeyPress={handleKeyPress} // Add event listener for Enter key press
           />
         </div>
           <button className="button-style-two" onClick={handleSaveIngredient}>
@@ -59,3 +65,4 @@ const IngredientSaver: React.FC<IngredientSaverProps> = ({
 };
 
 export default IngredientSaver;
+

@@ -4,7 +4,7 @@
     flex-direction: column; 
     align-items: center;
     justify-content: space-evenly;
-    width: 94%;
+    width: 100%;
     padding-top: 2%;
     padding-left: 3%;
     padding-right: 3%;
@@ -18,7 +18,7 @@
     justify-content: space-evenly; 
     width: 100%; 
     margin-bottom: 10px; 
-    background-color: #535b41;
+    background-color: #d0d9ba;
 }
 
 
@@ -48,6 +48,9 @@
   }
 
   .button-style-two {
+    font-size:14px;
+    line-height:1.2;
+    letter-spacing:1px;
     background-color: rgba(142, 142, 104, 0.9); /* A verdant hue */
     color: rgb(252, 251, 251);
     margin: 10px;
