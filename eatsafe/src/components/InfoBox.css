@@ -1,40 +1,61 @@
-.collapsible-container {
-    padding-top: 2%;
-    padding-left: 3%;
-    padding-right: 3%;
-    padding-bottom: 2%;
+/* Accordion container adjustments */
+.collapsible-container .accordion {
+    border: none;
+    min-width: 80%;
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
-.collapsible {
-    background-color: #535b41; /* A verdant hue */
+/* Accordion item adjustments */
+.collapsible-container .accordion-item {
+    background-color: #535b41;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Accordion header adjustments */
+.collapsible-container .accordion-button {
+    background-color: #535b41;
     color: white;
     cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
+    padding: 19px;
     text-align: center;
+    justify-content: center;
+    border: none;
+    outline: none;
+    transition: background-color 0.3s ease;
+    
+}
+
+/* Adjustments when header is collapsed */
+.collapsible-container .accordion-button.collapsed {
+    background-color: #535b41;
     border-radius: 10px;
 }
 
-.collapsible:hover {
+/* Header hover effect */
+.collapsible-container .accordion-button:hover {
     background-color: rgba(142, 142, 104, 0.9);
-}
-.active{
-    border-radius: 10px 10px 0px 0px;
-    background-color: #535b41;
+    opacity: 100%;
 }
 
-.content-show {
-    padding: 35px;
-    font-size: 70%;
-    text-align: left;
-    max-height: 1000px; /* Adjusted to ensure content is visible by default */
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
-    background-color: #535b41; /* A verdant hue */
-    margin: 0; /* Remove any potential margins */
-    border-radius: 0px 0px 10px 10px;
+/* Accordion body adjustments */
+.collapsible-container .accordion-body {
+    font-size: 17px;
+    padding: 2% 3%;
+    border-top: none;
+    transition: height 0.5s ease-in-out;
+}
+
+/* Remove the arrow from the accordion header */
+.collapsible-container .accordion-button::after {
+    display: none;
+}
+
+/* Ensure text is left-aligned */
+.collapsible-container .accordion-body, .collapsible-container .accordion-button {
+    text-align: left; /* Ensures all text within body and header is left-aligned */
 }

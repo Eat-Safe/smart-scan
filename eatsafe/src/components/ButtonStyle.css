@@ -22,10 +22,12 @@
   padding: 10px 24px;
   border-radius: 10px;
   cursor: pointer;
-  min-width: 140px;
+  min-width:120px;
+  max-width:120px;
   height: 60px;
   box-sizing: border-box;
   border: none;
+  font-family:Arial, Helvetica, sans-serif;
 }
 
 
@@ -72,16 +74,19 @@ ul {
 
 .upload-style {
   display: block;
+  letter-spacing: 1px;
   text-align: center;
   line-height: 150%;
   background-color: #535b41; /* A verdant hue */
-  color: rgb(252, 251, 251);
+  color: white;
   border-radius: 10px;
   cursor: pointer;
-  min-width: 140px;
+  min-width: 120px;
+  max-width:120px;
   height: 60px;
-  font-size: 15px;
-  padding-top: 12%;
+  font-size: 14px;
+  padding-top: 16%;
+  font-family: Arial, Helvetica, sans-serif;
 
 }
 
