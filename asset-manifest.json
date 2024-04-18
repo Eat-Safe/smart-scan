@@ -13,18 +13,3 @@
     "static/js/main.4e5d023a.js"
   ]
 }
-{
-  "files": {
-    "main.css": "/smart-scan/static/css/main.2a437ec3.css",
-    "main.js": "/smart-scan/static/js/main.4e5d023a.js",
-    "static/js/453.34388f15.chunk.js": "/smart-scan/static/js/453.34388f15.chunk.js",
-    "index.html": "/smart-scan/index.html",
-    "main.2a437ec3.css.map": "/smart-scan/static/css/main.2a437ec3.css.map",
-    "main.4e5d023a.js.map": "/smart-scan/static/js/main.4e5d023a.js.map",
-    "453.34388f15.chunk.js.map": "/smart-scan/static/js/453.34388f15.chunk.js.map"
-  },
-  "entrypoints": [
-    "static/css/main.2a437ec3.css",
-    "static/js/main.4e5d023a.js"
-  ]
-}
