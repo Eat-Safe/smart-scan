@@ -1,4 +1,3 @@
-// IngredientSaver.tsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./IngredientSaver.css"
@@ -30,32 +29,41 @@ const IngredientSaver: React.FC<IngredientSaverProps> = ({
     }
   };
 
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      handleSaveIngredient();
+    }
+  };
+
   const navigateToSavedIngredients = () => {
     navigate('/saved-ingredients');
   };
 
   return (
-    <div className='container-save'>
-      <div className='content-save'>
-        <div className='input-container'>
-          <input
-            type="text"
-            value={ingredient}
-            onChange={(e) => setIngredient(e.target.value)}
-            placeholder="Enter an ingredient: "
-            className='input'
-          />
+    <form onSubmit={(e) => { e.preventDefault(); handleSaveIngredient(); }}>
+      <div className='container-save'>
+        <div className='content-save'>
+          <div className='input-container'>
+            <input
+              type="text"
+              value={ingredient}
+              onChange={(e) => setIngredient(e.target.value)}
+              placeholder="Enter an ingredient: "
+              className='input'
+              onKeyPress={handleKeyPress} // Add event listener for Enter key press
+            />
+          </div>
+          <div className="button-group">
+            <button type="submit" className="button-style-two">Save Item</button>
+            <button type="button" className="button-style-two" onClick={navigateToSavedIngredients}>View Items</button>
+          </div>
         </div>
-          <button className="button-style-two" onClick={handleSaveIngredient}>
-            Save Ingredient
-          </button>
-          <button className="button-style-two" onClick={navigateToSavedIngredients}>
-            View Saved Ingredients
-          </button>
+        {/* Apply the 'show' class conditionally based on the 'showSuccessMessage' state */}
+        <p className={`success-message ${showSuccessMessage ? 'show' : ''}`}>Ingredient saved successfully!</p>
       </div>
-      {showSuccessMessage && <p className="success-message">Ingredient saved successfully!</p>}
-    </div>
+    </form>
   );
 };
 
 export default IngredientSaver;
+
