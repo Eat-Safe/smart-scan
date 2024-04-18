@@ -1,14 +1,14 @@
 
 .container-save {
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
-    justify-content: space-evenly;
-    width: 100%;
-    padding-top: 2%;
-    padding-left: 3%;
-    padding-right: 3%;
-    padding-bottom: 2%;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  padding-top: 2%;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-bottom: 2%;
 }
 
 
@@ -16,7 +16,7 @@
     border-radius: 10px;
     display: flex;
     justify-content:space-evenly; 
-    min-width: 100%; 
+    min-width: 100%;
     margin-bottom: 10px; 
     background-color: #d0d9ba;
 }
@@ -79,7 +79,17 @@
     background-color: white; 
     display: inline-block; 
     box-shadow: 1px 1px 5px rgba(0,0,0,0.2); 
-}
+  
+    /* Add CSS transitions for opacity and visibility */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+  }
+  
+  .success-message.show {
+    opacity: 1;
+    visibility: visible;
+  }
 
   .button-group {
     display:contents;

@@ -58,12 +58,12 @@ const IngredientSaver: React.FC<IngredientSaverProps> = ({
             <button type="button" className="button-style-two" onClick={navigateToSavedIngredients}>View Items</button>
           </div>
         </div>
-        {showSuccessMessage && <p className="success-message">Ingredient saved successfully!</p>}
+        {/* Apply the 'show' class conditionally based on the 'showSuccessMessage' state */}
+        <p className={`success-message ${showSuccessMessage ? 'show' : ''}`}>Ingredient saved successfully!</p>
       </div>
     </form>
   );
 };
 
 export default IngredientSaver;
-
 
