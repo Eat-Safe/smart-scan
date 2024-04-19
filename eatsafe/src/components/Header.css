@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  width: 100%;
   background-color: #535b41; /* Adjust the color to match your design */
   color: white;
   position: relative; /* Ensure that the .menu position is relative to .header */
@@ -26,22 +26,24 @@
 }
 
 .menu {
-  display: none;
+  display: flex;
   flex-direction: column;
   position: absolute;
-  top: 100%;
-  left: 0;
-  width: 30%;
-  background-color: #535b41;
+  width: 30%; /* Adjust the width as needed */
+  background-color: #535b41; /* Adjust the background color */
   color: white;
   padding: 0.5rem;
   border-radius: 0px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
+  transition: transform 0.3s ease; /* Smooth transition for animation */
+  transform-origin: top; /* Set the transform origin to the top */
+  transform: scaleY(0); /* Initially collapse the menu vertically */
+  top: 50px; /* Adjust the top position to ensure visibility */
 }
 
 .menu.visible {
-  display: flex;
+  transform: scaleY(1); /* Expand the menu vertically when visible */
+  top: 100%; /* Adjust the top position to the normal position */
 }
 
 .menu p,
