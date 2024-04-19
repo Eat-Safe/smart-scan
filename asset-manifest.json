@@ -1,15 +1,16 @@
 {
   "files": {
     "main.css": "/smart-scan/static/css/main.7a8cb8e7.css",
-    "main.js": "/smart-scan/static/js/main.0b6f4302.js",
+    "main.js": "/smart-scan/static/js/main.29153d9d.js",
     "static/js/453.34388f15.chunk.js": "/smart-scan/static/js/453.34388f15.chunk.js",
+    "static/media/HeaderLogoEatSafe.png": "/smart-scan/static/media/HeaderLogoEatSafe.45d1e6c8fe87a0aa3752.png",
     "index.html": "/smart-scan/index.html",
     "main.7a8cb8e7.css.map": "/smart-scan/static/css/main.7a8cb8e7.css.map",
-    "main.0b6f4302.js.map": "/smart-scan/static/js/main.0b6f4302.js.map",
+    "main.29153d9d.js.map": "/smart-scan/static/js/main.29153d9d.js.map",
     "453.34388f15.chunk.js.map": "/smart-scan/static/js/453.34388f15.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7a8cb8e7.css",
-    "static/js/main.0b6f4302.js"
+    "static/js/main.29153d9d.js"
   ]
 }
