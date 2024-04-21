@@ -34,7 +34,7 @@ function AboutUs() {
             </div>
             <div className="team-member">
               <h3>Brenda Castellanos</h3>
-              <p>I’m Brenda Castellanos, a computer science major and mathematics minor. My contributions included some frontend coding. I worked on the design of our web app and made it come to life. I assisted on making our web app user-friendly for those interested in using it. I also assisted with formatting some buttons. In my free time, I enjoy playing my violin, ukulele, and singing. Thank you for checking us out!</p>
+              <p>I’m Brenda Castellanos, a computer science major and mathematics minor. My contributions included frontend coding. As the lead designer and frontend developer I helped shape the user experience and visual identity of our web application. I was able to translate design concepts into functional components, bringing the app to life with responsive and intuitive features. I am passionate about creating an engaging and user-friendly experience, enhancing accessibility and usability for all users!</p>
             </div>
             <div className="team-member">
               <h3>Haimei Chen</h3>
