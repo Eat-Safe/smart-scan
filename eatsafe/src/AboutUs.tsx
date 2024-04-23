@@ -17,7 +17,7 @@ function AboutUs() {
         <section>
           {/* Mission statement inside a styled div */}
           <div className="mission-statement-box">
-            <h1>Our Mission</h1>
+            <h2>Our Mission</h2>
             <p>At Eat-Safe Smart Scan, our mission is to enhance food safety and empower individuals with dietary restrictions by providing a user-friendly, tech-driven solution for allergen detection. We are dedicated to improving the dining experience for everyone, especially those with food allergies, sensitivities, and dietary preferences. By leveraging cutting-edge technology and intuitive design, we aim to deliver accurate, accessible, and immediate allergen analysis. Our goal is to create a safer, more informed food consumption environment where individuals can make confident eating choices.</p>
           </div>
         </section>

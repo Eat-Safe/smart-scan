@@ -2,7 +2,7 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
- 
+  background-color: rgba(229, 235, 224, 0.9);
 }
 
 .about-us-title {
@@ -55,4 +55,8 @@
 
 .team-member {
   margin-bottom: 60px;
+}
+
+.team-member h2 {
+  color: #535b41;
 }
