@@ -1,0 +1,52 @@
+.saved-ingredients-page {
+  padding: 20px;
+}
+
+.saved-ingredients-page .savedIngredients {
+  text-align: center;
+  color: white; /* White text */
+  background-color: #535b41; /* Dark olive background */
+  border-radius: 20px 5px 20px 5px; /* Rounded edges */
+  padding: 20px; /* Adjust padding as needed */
+  width: 80%; /* Span 80% of the screen */
+  margin: 0 auto; /* Center horizontally */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Nice shadow */
+}
+
+.saved-ingredients-page .delete-container {
+  width: 80%; /* Span 80% of the screen */
+  margin: 0 auto; /* Center horizontally */
+  border-radius: 5px 20px 5px 20px; /* Rounded edges */
+  padding: 50px; /* Padding for the container */
+  padding-right: 10%;
+  padding-left: 10%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Nice shadow */
+}
+
+.saved-ingredients-page .ingredient-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Arial;
+  font-size: 20px;
+  color: #ffffff; /* Light olive */
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  background-color: #8e8e68; /* Olive */
+}
+
+.saved-ingredients-page .ingredient-item button {
+  color: #ffffff; /* Light yellow */
+  background-color: #535b41; /* Dark olive */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.saved-ingredients-page .ingredient-item button:hover {
+  background-color: #aea785; /* Light olive on hover */
+}
