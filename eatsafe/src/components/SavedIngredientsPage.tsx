@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import { useNavigate } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 import './ButtonStyle.css'; // Import CSS file for styles
+import './SavedIngredientsPage.css'
 
 const SavedIngredientsPage = () => {
   const [savedIngredients, setSavedIngredients] = useState<string[]>([]);
@@ -26,17 +28,19 @@ const SavedIngredientsPage = () => {
   return (
     <div>
       <Header />
-      <h1 className="savedIngredients" style={{ textAlign: 'center', color: 'white'}}> SAVED INGREDIENTS </h1>
-      <ul className="delete-container" style={{ listStyleType: 'none', paddingLeft: '10px' }}>
-        {savedIngredients.map((ingredient, index) => (
-          <li key={index} style={{ fontFamily: 'Arial', fontSize: '16px', color: '#333' }}>
-            {ingredient}
-            <button className="delete-style" onClick={() => handleDeleteIngredient(ingredient)}>
-              Delete
-            </button>
-          </li>
-        ))}
-      </ul>
+      <div className="saved-ingredients-page">
+        <h1 className="savedIngredients">SAVED INGREDIENTS</h1>
+      </div>
+      <div className="saved-ingredients-page">
+        <ul className="delete-container">
+          {savedIngredients.map((ingredient, index) => (
+            <li key={index} className="ingredient-item">
+              {ingredient}
+              <Button variant="danger" onClick={() => handleDeleteIngredient(ingredient)}>Delete</Button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
