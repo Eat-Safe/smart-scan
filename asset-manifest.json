@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/smart-scan/static/css/main.5121e472.css",
-    "main.js": "/smart-scan/static/js/main.cb9b19bf.js",
+    "main.css": "/smart-scan/static/css/main.d437f1b1.css",
+    "main.js": "/smart-scan/static/js/main.8cb6e365.js",
     "static/js/453.34388f15.chunk.js": "/smart-scan/static/js/453.34388f15.chunk.js",
     "static/media/HeaderLogoEatSafe.png": "/smart-scan/static/media/HeaderLogoEatSafe.45d1e6c8fe87a0aa3752.png",
     "index.html": "/smart-scan/index.html",
-    "main.5121e472.css.map": "/smart-scan/static/css/main.5121e472.css.map",
-    "main.cb9b19bf.js.map": "/smart-scan/static/js/main.cb9b19bf.js.map",
+    "main.d437f1b1.css.map": "/smart-scan/static/css/main.d437f1b1.css.map",
+    "main.8cb6e365.js.map": "/smart-scan/static/js/main.8cb6e365.js.map",
     "453.34388f15.chunk.js.map": "/smart-scan/static/js/453.34388f15.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5121e472.css",
-    "static/js/main.cb9b19bf.js"
+    "static/css/main.d437f1b1.css",
+    "static/js/main.8cb6e365.js"
   ]
 }
